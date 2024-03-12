@@ -17,7 +17,7 @@ const SetTheme = () => {
   useEffect(() => {
     global.window.__onThemeChange = setTheme;
     setthememode(theme);
-  }, []);
+  }, [setthememode, theme]);
 
   return (
     <>
