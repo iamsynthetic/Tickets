@@ -152,6 +152,7 @@ const EditTicketForm = ({ ticket }: Props) => {
         throw new Error("failed to create ticket");
       }
     }
+
     setAddedTicket(formData);
     router.refresh();
     router.push("/");
