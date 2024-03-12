@@ -2,32 +2,440 @@
 @tailwind components;
 @tailwind utilities;
 
+.lekton400 {
+  font-family: var(--font-lekton400);
+}
+
+.lekton700 {
+  font-family: var(--font-lekton700);
+}
+
+.poppins200 {
+  font-family: var(--font-poppins200);
+}
+
+.poppins700 {
+  font-family: var(--font-poppins700);
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --light: #f9f7fd;
+  --dark: #1d232a;
+  --pink: #f299a9;
+  --blue: #0367a6;
+  --yellow: #d9b54a;
+  --orange: #f2a444;
+  --cream: #f2e2ce;
+  --green: #30f4dd;
+  --grey: #f0f0f2;
+  --midgrey: #d7d7d8;
+  --darkgrey: #9e9e9e;
+  --white: #ffffff;
+  --black: #000000;
+
+  --mainnavbg: #d7d7d8;
+  --maincontentbg: #f0f0f2;
+  --iconscolor: #1d232a;
+
+  --orangehover: #ffbb67;
+  --greenhover: #77ffef;
+  --bluehover: #0d89d6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.color-light {
+  color: var(--light);
+}
+.color-dark {
+  color: var(--dark);
+}
+.color-pink {
+  color: var(--pink);
+}
+.color-blue {
+  color: var(--blue);
+}
+.color-yellow {
+  color: var(--yellow);
+}
+.color-orange {
+  color: var(--orange);
+}
+.color-cream {
+  color: var(--cream);
+}
+.color-grey {
+  color: var(--grey);
+}
+.color-midgrey {
+  color: var(--midgrey);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+* {
+  min-width: 0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+:root[data-theme="dark"] {
+  color-scheme: light;
+  color: var(--dark);
+  background-color: var(--light);
+  --mainnavbg: #d7d7d8;
+  --maincontentbg: #f0f0f2;
+  --iconscolor: #1d232a;
+  --navbtnscolor: #1d232a;
+  --mainnavdropdownbg: #e7e7e7;
+  --ticketcollapsebg: #f9f7fd;
+  --ticketcollapsetxtcolor: #0367a6;
+  --ticketbg: #f9f7fd;
+  --tickettxtcolor: #1d232a;
+  --ticketlabelcolor: #9e9e9e;
+
+  --ticketlabelcontentcolor: #1d232a;
+  --ticketcategorylabelcolor: #090a0a;
+  --xclose: #1d232a;
+  --ticketrowbgcolor: var(--light);
+  --ticketlistbgcolor: var(--grey);
+  --updateticketcolor: var(--orange);
+  --updateticketcolorhover: var(--orangehover);
+}
+:root[data-theme="light"] {
+  color-scheme: dark;
+  color: var(--light);
+  background-color: var(--dark);
+  --mainnavbg: #202020;
+  --maincontentbg: #191919;
+  --iconscolor: #9e9e9e;
+  --navbtnscolor: #f9f7fd;
+  --mainnavdropdownbg: #303030;
+  --ticketcollapsebg: #0367a6;
+  --ticketcollapsetxtcolor: #1d232a;
+  --ticketbg: #f9f7fd;
+  --tickettxtcolor: var(--light);
+  --ticketlabelcolor: #9e9e9e;
+  --ticketlabelcontentcolor: #f9f7fd;
+  --ticketcategorylabelcolor: #0367a6;
+  --xclose: #1d232a;
+  --ticketrowbgcolor: #535353;
+  --ticketlistbgcolor: #212121;
+  --updateticketcolor: var(--green);
+  --updateticketcolorhover: var(--greenhover);
+}
+
+/*--------------------- navigation ------------------------------------*/
+.bg-nav {
+  background-color: var(--mainnavbg);
+}
+.bg-nav-dropdown {
+  width: 12rem;
+  background-color: var(--mainnavdropdownbg);
+  cursor: default;
+}
+.bg-nav-dropdown-button {
+  @apply rounded-sm;
+  cursor: pointer;
+  padding: 5px;
+}
+.bg-nav-dropdown-button:hover {
+  cursor: pointer;
+  color: var(--dark);
+  background-color: var(--pink);
+}
+.bg-nav-dropdown-button-no-hover {
+  @apply rounded-sm;
+  padding: 5px;
+}
+.bg-modal {
+  background-color: var(--mainnavdropdownbg);
+}
+.bg-modal-dropdown {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+
+  width: 80rem;
+  max-width: 60rem;
+  background-color: var(--mainnavdropdownbg);
+}
+.bg-subnav {
+  background-color: var(--maincontentbg);
+}
+.bg-maincontent {
+  background-color: var(--maincontentbg);
+}
+
+.nav-hamburger-icon {
+  height: 26px;
+  width: 26px;
+  margin-top: 2px;
+  stroke: var(--iconscolor);
+}
+.nav-hamburger-icon:hover {
+  stroke: var(--pink);
+}
+.btn-create {
+  color: var(--dark);
+  background-color: var(--pink);
+  border: none;
+}
+.btn-create:hover {
+  background-color: var(--cream);
+}
+.nav-notification-icon {
+  height: 20px;
+  width: 20px;
+  margin-top: -1px;
+  stroke: var(--iconscolor);
+}
+.nav-notification-icon:hover {
+  stroke: var(--pink);
+}
+.nav-settings-icon {
+  height: 20px;
+  width: 20px;
+  margin-top: 3px;
+  fill: var(--iconscolor);
+}
+.nav-settings-icon:hover {
+  fill: var(--pink);
+}
+.nav-sun-icon {
+  height: 20px;
+  width: 20px;
+  margin-top: 3px;
+  fill: var(--iconscolor);
+}
+.nav-sun-icon:hover {
+  fill: var(--pink);
+}
+.nav-moon-icon {
+  height: 22px;
+  width: 22px;
+  margin-top: 2px;
+  fill: var(--iconscolor);
+}
+.nav-moon-icon:hover {
+  fill: var(--pink);
+}
+.nav-profile-icon {
+  height: 24px;
+  width: 24px;
+  margin-top: 0px;
+  fill: var(--iconscolor);
+}
+.nav-profile-icon:hover {
+  fill: var(--pink);
+}
+.nav-listicon-icon {
+  height: 30px;
+  width: 30px;
+  margin-top: 0px;
+  stroke-width: 1px;
+  fill: var(--iconscolor);
+}
+.nav-listicon-icon:hover {
+  fill: var(--pink);
+}
+.nav-btn {
+  color: var(--navbtnscolor);
+}
+.nav-btn:hover {
+  color: var(--pink);
+}
+.lightnavitem {
+  color: #f9f7fd;
+}
+.main-menu-icons {
+  list-style: none;
+}
+.details-btn {
+  cursor: pointer;
+}
+
+/*----------------------sub menu-------------------------------------*/
+.btn-switch-tickets-clicked {
+  background-color: var(--pink);
+  border: none;
+  color: var(--dark);
+}
+.btn-switch-tickets-clicked:hover {
+  background-color: var(--cream);
+  border: none;
+  color: var(--dark);
+}
+
+.btn-switch-tickets-not-clicked {
+  border: none;
+  color: var(--navbtnscolor);
+}
+/*----------------------misc icons-------------------------------------*/
+.xclose-icon {
+  height: 34px;
+  width: 34px;
+  padding: 3px 0 6px 0;
+  fill: #ff5861;
+}
+.btn-closex:hover {
+  background-color: var(--pink);
+  border: none;
+}
+
+.tooltip-style {
+  --tooltip-color: var(--light);
+  --tooltip-text-color: var(--pink);
+  margin-left: -20px;
+}
+
+/*----------------------update ticket-------------------------------------*/
+.update-ticket-title {
+  color: var(--ticketlabelcontentcolor);
+  font-size: 2rem;
+  font-family: var(--font-poppins200);
+}
+
+.update-ticket-label {
+  color: var(--ticketlabelcontentcolor);
+  font-size: 1.25rem;
+  font-family: var(--font-lekton400);
+}
+
+.update-ticket-input {
+  color: var(--dark);
+  font-size: 1.25rem;
+  font-family: var(--font-lekton400);
+}
+/*---------------------ticket-----------------------------------*/
+.ticket-collapse {
+  color: var(--ticketcollapsetxtcolor);
+  background-color: var(--ticketcollapsebg);
+}
+.ticket-opened {
+  color: var(--tickettxtcolor);
+  background-color: var(--ticketbg);
+}
+.ticket-arrow {
+  rotate: 180deg;
+}
+.ticket-title {
+  color: var(--ticketlabelcontentcolor);
+  font-size: 1.5rem;
+  font-family: var(--font-lekton700);
+}
+.ticket-label {
+  color: var(--ticketlabelcolor);
+  font-size: 14px;
+  font-family: var(--font-lekton700);
+}
+
+.ticket-label-content {
+  color: var(--ticketlabelcontentcolor);
+  font-size: 14px;
+  font-family: var(--font-lekton700);
+}
+.ticket-label-description {
+  color: var(--tickettxtcolor);
+  font-size: 1rem;
+  font-family: var(--font-lekton400);
+}
+.ticket-label-category {
+  color: var(--ticketlabelcontentcolor);
+  font-size: 14px;
+  font-family: var(--font-lekton700);
+  margin-left: 10px;
+}
+.status-bar {
+  width: 100%;
+  height: 10px;
+  background-color: var(--pink);
+}
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-pink {
+  height: 25px;
+  width: 25px;
+  background-color: var(--pink);
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-orange {
+  height: 25px;
+  width: 25px;
+  background-color: var(--orange);
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-yellow {
+  height: 25px;
+  width: 25px;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-cream {
+  height: 25px;
+  width: 25px;
+  background-color: var(--cream);
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-blue {
+  height: 25px;
+  width: 25px;
+  background-color: var(--blue);
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-green {
+  height: 25px;
+  width: 25px;
+  background-color: var(--green);
+  border-radius: 50%;
+  display: inline-block;
+}
+.btn-updateticket {
+  background-color: var(--updateticketcolor);
+  border: none;
+  color: var(--dark);
+}
+.btn-updateticket:hover {
+  background-color: var(--updateticketcolorhover);
+  border: none;
+  color: var(--dark);
+}
+.btn-completeticket {
+  background-color: var(--green);
+  border: none;
+  color: var(--dark);
+}
+.btn-completeticket:hover {
+  background-color: var(--greenhover);
+  border: none;
+  color: var(--dark);
+}
+.inputfield {
+  color: var(--dark);
+  background-color: var(--light);
+}
+.ticketcard-bg {
+  background-color: var(--ticketrowbgcolor);
+}
+.ticketlist-bg {
+  background-color: var(--ticketlistbgcolor);
+}
+
+.ticketlist-row-bg {
+  background-color: var(--ticketrowbgcolor);
+}
+.list-valign-center {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 3.75rem;
+  padding-right: 0.5rem;
+}
+.list-valign-center:not(:last-child) {
+  padding-right: 0.5rem;
 }
