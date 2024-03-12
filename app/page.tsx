@@ -29,7 +29,7 @@ const TicketDashboard = async () => {
   return (
     <>
       {/* <MainPage ticket={tickets} /> */}
-      <MainPage ticket={tickets as unknown as Tickets} />
+      <MainPage ticket={tickets as any} />
     </>
   );
 };
