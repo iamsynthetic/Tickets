@@ -11,8 +11,6 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
   let [deletedTicket, setDeletedTicket] = useState(null);
   let [addedTicket, setAddedTicket] = useState("");
 
-  console.log("appwrapper addedTicket is: " + JSON.stringify(addedTicket));
-
   return (
     <AppContext.Provider
       value={{

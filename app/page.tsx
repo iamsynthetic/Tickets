@@ -9,10 +9,9 @@ interface Params {
 
 const getTickets = async () => {
   try {
-    const apiEndpoint = process.env.MONGODB_URI;
     // const res = await fetch("http://localhost:3000/api/Tickets", {
     const res = await fetch(
-      `https://tickets-kkxp43vzm-syntheticsamuraihotmailcoms-projects.vercel.app//api/Tickets`,
+      `https://tickets-kkxp43vzm-syntheticsamuraihotmailcoms-projects.vercel.app/api/Tickets`,
       {
         cache: "no-store",
       }
