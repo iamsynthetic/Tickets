@@ -18,13 +18,19 @@ const MainPage = ({ ticket }: any) => {
   const { addedTicket } = useAppContext();
   const { setAddedTicket } = useAppContext();
 
+  // useEffect(() => {
+  //   if (addedTicket != "") {
+  //     ticket.push(addedTicket);
+  //     setAddedTicket("");
+  //     window.location.reload()
+  //   }
+  // }, [addedTicket, filteredtickets, setAddedTicket, ticket]);
+
   useEffect(() => {
     if (addedTicket != "") {
-      ticket.push(addedTicket);
-      setAddedTicket("");
-      window.location.reload;
+      window.location.reload();
     }
-  }, [addedTicket, filteredtickets, setAddedTicket, ticket]);
+  }, [addedTicket]);
 
   useEffect(() => {
     if (deletedTicket != null) {
