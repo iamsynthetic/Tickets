@@ -2,6 +2,7 @@ import React from "react";
 import { Tickets } from "./utils/interface";
 import MainPage from "@/app/components/MainPage";
 import { revalidatePath } from "next/cache";
+import { API_URL } from "@/config/index";
 
 interface Params {
   ticket: Tickets;
@@ -10,12 +11,9 @@ interface Params {
 const getTickets = async () => {
   try {
     // const res = await fetch("http://localhost:3000/api/Tickets", {
-    const res = await fetch(
-      `https://tickets-kkxp43vzm-syntheticsamuraihotmailcoms-projects.vercel.app/api/Tickets`,
-      {
-        cache: "no-store",
-      }
-    );
+    const res = await fetch(`${API_URL}/api/Tickets`, {
+      cache: "no-store",
+    });
     return res.json();
   } catch (error) {
     console.log("failed to get tickets", error);
