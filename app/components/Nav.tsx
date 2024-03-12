@@ -330,11 +330,6 @@ const Nav = ({ title = "" }: Props) => {
                           }}
                         />
                       </div>
-                      <div>
-                        <p>
-                          <b>email is:</b>
-                        </p>
-                      </div>
                     </div>
                   </form>
                   <form method="dialog" className="modal-backdrop">
