@@ -282,8 +282,9 @@ const EditTicketForm = ({ ticket }: Props) => {
                 <label className="mr-3 mt-3">priority</label>
                 <select
                   name="priority"
-                  value={formData.priority}
                   onChange={handlePriorityChange}
+                  required={true}
+                  value={formData.priority}
                   className="update-ticket-input mt-1 bg-slate-50 pt-3 pb-3 pl-2 pr-2 rounded-md"
                 >
                   {priorities?.map((priority, _index) => (
