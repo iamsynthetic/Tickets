@@ -23,7 +23,7 @@ const MainPage = ({ ticket }: any) => {
       ticket.push(addedTicket);
       setAddedTicket("");
     }
-  }, [addedTicket, filteredtickets, setAddedTicket, ticket]);
+  });
 
   useEffect(() => {
     if (deletedTicket != null) {
