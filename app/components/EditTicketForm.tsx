@@ -29,9 +29,9 @@ const EditTicketForm = ({ ticket }: Props) => {
     project: "",
     manager: "",
     description: "",
-    priority: "emergency",
+    priority: "",
     status: "",
-    category: "hardware problem",
+    category: "code fix",
     createdAt: new Date(),
     updatedAt: new Date(),
   };
