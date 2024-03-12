@@ -1,6 +1,7 @@
 import React from "react";
 import { Tickets } from "../../utils/interface";
 import EditTicketPage from "@/app/components/EditTicketPage";
+import { API_URL } from "@/config/index";
 
 interface Params {
   ticket: Tickets;
@@ -11,7 +12,8 @@ interface Params {
 
 const getTickets = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/Tickets", {
+    //const res = await fetch("http://localhost:3000/api/Tickets", {
+    const res = await fetch(`${API_URL}/api/Tickets`, {
       cache: "no-store",
     });
     return res.json();
