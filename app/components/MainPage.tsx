@@ -16,7 +16,6 @@ const MainPage = ({ ticket }: any) => {
   const { deletedTicket } = useAppContext();
   const { setDeletedTicket } = useAppContext();
   const { addedTicket } = useAppContext();
-  const { setAddedTicket } = useAppContext();
 
   // useEffect(() => {
   //   if (addedTicket != "") {

@@ -161,7 +161,7 @@ const EditTicketForm = ({ ticket }: Props) => {
   const priorities = ["Emergency", "High", "Medium", "Low", "None"];
 
   const categories = [
-    "code fix",
+    "fix code",
     "copy fix",
     "missing information",
     "scheduling issue",
