@@ -54,9 +54,7 @@ const TicketPage = async ({ params }: any) => {
 
   return (
     <div>
-      ticket page edit ticket
       <EditTicketPage ticket={theticket as unknown as Tickets} />
-      {/* <EditTicketPage ticket={theticket} /> */}
     </div>
   );
 };
