@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useAppContext } from "../context";
 import { Tickets } from "../utils/interface";
 import Nav from "./Nav";
@@ -22,14 +22,28 @@ const MainPage = ({ ticket }: any) => {
     if (addedTicket != "") {
       ticket.push(addedTicket);
       setAddedTicket("");
+      window.location.reload;
     }
-  });
+  }, [addedTicket, filteredtickets, setAddedTicket, ticket]);
 
   useEffect(() => {
     if (deletedTicket != null) {
       const newListOfTickets = ticket.filter(
         (ticket: Tickets) => ticket._id !== deletedTicket
       );
+      // console.log(
+      //   "mainpage - useeffect - deletedticket: " +
+      //     "\n amount of tickets: " +
+      //     ticket.length +
+      //     "\n deleted ticket id is: " +
+      //     deletedTicket +
+      //     "\n \n all tickets: " +
+      //     JSON.stringify(ticket) +
+      //     "\n \n filteredTickets is: " +
+      //     JSON.stringify(filteredtickets) +
+      //     "\n \n new newListOfTickets should be without the deleted ticket: " +
+      //     JSON.stringify(newListOfTickets)
+      // );
 
       setfilteredtickets(newListOfTickets);
       setDeletedTicket(null);
